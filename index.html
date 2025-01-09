@@ -73,29 +73,37 @@
     font-style: italic; /* Add a professional touch with italics */
     opacity: 0.9; /* Slight transparency for a softer look */
     }
-            .skill {
-        margin-bottom: 15px;
+        .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
     }
     
-    .skill label {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 5px;
-    }
-    
-    .skill-bar {
-        background-color: #e0e0e0;
+    .skill-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
         border-radius: 10px;
-        overflow: hidden;
-        height: 20px;
-        width: 100%;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
-    .skill-bar-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #0056b3, #007bff);
-        border-radius: 10px;
-        transition: width 0.5s ease;
+    .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .skill-card h3 {
+        margin: 0 0 10px;
+        color: #0056b3;
+        font-size: 1.2em;
+    }
+    
+    .skill-card p {
+        margin: 0;
+        font-size: 1em;
+        color: #555;
     }
 
     </style>
@@ -140,9 +148,13 @@
 
     <section id="experience">
         <h2>Education</h2>
-        <p><strong>Master's in Computer Science</strong> | Jan 2023 - April 2024 <br>
+        <p><strong>Master's in Computer Science</strong> | Jan 2023 - April 2024 
+            <br>
+            
             University of Alabama at Birmingham </p>
 
+        <br>
+        <br>
         
         <h2>Professional Experience</h2>
         <h3>Azure Data Engineer</h3>
@@ -192,50 +204,31 @@
     </section> -->
 
     <section id="skills">
-    <h2>Skills</h2>
-    <div class="skill">
-        <label>Cloud Platforms (AWS - S3, Redshift, Glue, Lambda, EMR, Azure - Data Factory, Synapse, Databricks, Blob Storage, GCP - BigQuery, Dataflow, Pub/Sub, Dataproc)</label>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width: 90%;"></div>
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Cloud Platforms</h3>
+            <p>AWS, Azure, GCP</p>
         </div>
-    </div>
-    <div class="skill">
-        <label>Data Pipelines (Apache Airflow, AWS Glue, Azure Data Factory, Talend, Informatica, Alteryx)</label>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width: 85%;"></div>
+        <div class="skill-card">
+            <h3>Data Pipelines</h3>
+            <p>Airflow, Glue, ADF, Talend</p>
         </div>
-    </div>
-    <div class="skill">
-        <label>Languages (Python, SQL, Scala, Java)</label>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width: 95%;"></div>
+        <div class="skill-card">
+            <h3>Languages</h3>
+            <p>Python, SQL, Scala, Java</p>
         </div>
-    </div>
-    <div class="skill">
-        <label>Machine Learning (TensorFlow, Keras, scikit-learn, PyTorch)</label>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width: 70%;"></div>
+        <div class="skill-card">
+            <h3>Machine Learning</h3>
+            <p>TensorFlow, Keras, PyTorch</p>
         </div>
-    </div>
-    <div class="skill">
-        <label>Databases (MySQL, PostgreSQL, MongoDB, BigQuery, Cassandra, Redshift, Snowflake, Azure SQL Database)</label>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width: 70%;"></div>
-        </div>
-    </div>
-    <div class="skill">
-        <label>Visualization Tools (Tableau, Power BI, Looker)</label>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width: 80%;"></div>
-        </div>
-    </div>
-    <div class="skill">
-        <label>CI/CD (Jenkins, Azure DevOps, GitLab CI/CD, Terraform)</label>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width: 80%;"></div>
+        <div class="skill-card">
+            <h3>Visualization</h3>
+            <p>Tableau, Power BI</p>
         </div>
     </div>
  </section>
+
 
 
     <section id="contact">
