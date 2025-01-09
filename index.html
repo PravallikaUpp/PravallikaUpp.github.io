@@ -73,6 +73,30 @@
     font-style: italic; /* Add a professional touch with italics */
     opacity: 0.9; /* Slight transparency for a softer look */
     }
+            .skill {
+        margin-bottom: 15px;
+    }
+    
+    .skill label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .skill-bar {
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 20px;
+        width: 100%;
+    }
+    
+    .skill-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #0056b3, #007bff);
+        border-radius: 10px;
+        transition: width 0.5s ease;
+    }
 
     </style>
     <script>
@@ -168,17 +192,39 @@
     </section> -->
 
     <section id="skills">
-        <h2>Technical Skills</h2>
-            <ul>
-                <li><strong>Cloud Platforms:</strong> AWS (S3, Redshift, Glue, Lambda, EMR), Azure (Data Factory, Synapse, Databricks, Blob Storage), GCP (BigQuery, Dataflow, Pub/Sub, Dataproc)</li>
-                <li><strong>Data Pipelines:</strong> Apache Airflow, AWS Glue, Azure Data Factory, Talend, Informatica, Alteryx</li>
-                <li><strong>Languages:</strong> Python, SQL, Scala, Java</li>
-                <li><strong>Machine Learning:</strong> TensorFlow, Keras, scikit-learn, PyTorch</li>
-                <li><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, BigQuery, Cassandra, Redshift, Snowflake, Azure SQL Database</li>
-                <li><strong>Visualization Tools:</strong> Tableau, Power BI, Looker</li>
-                <li><strong>CI/CD:</strong> Jenkins, Azure DevOps, GitLab CI/CD, Terraform</li>
-            </ul>
-    </section>
+    <h2>Technical Skills</h2>
+    <div class="skill">
+        <label>Cloud Platforms (AWS, Azure, GCP)</label>
+        <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 90%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <label>Data Pipelines (Airflow, Glue, ADF)</label>
+        <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 85%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <label>Languages (Python, SQL, Scala)</label>
+        <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 95%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <label>Machine Learning (TensorFlow, PyTorch)</label>
+        <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 70%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <label>Visualization Tools (Tableau, Power BI)</label>
+        <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 80%;"></div>
+        </div>
+    </div>
+ </section>
+
 
     <section id="contact">
         <h2>Contact Me</h2>
