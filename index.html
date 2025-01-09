@@ -20,61 +20,28 @@
             text-align: center;
             position: sticky;
             top: 0;
-            z-index: 1000;
         }
-        nav a {
+        nav button {
+            background: none;
+            border: none;
             color: #fff;
-            text-decoration: none;
             margin: 0 15px;
+            font-size: 16px;
             font-weight: bold;
+            cursor: pointer;
         }
-        nav a:hover {
+        nav button.active {
             text-decoration: underline;
         }
-        header {
-            background: linear-gradient(90deg, #0056b3, #007bff);
-            color: #fff;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+        nav button:hover {
+            text-decoration: underline;
         }
         section {
-            margin-bottom: 40px;
+            display: none;
+            padding: 20px;
         }
-        section h2 {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        a {
-            color: #0056b3;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+        section.active {
+            display: block;
         }
         footer {
             text-align: center;
@@ -84,87 +51,73 @@
             margin-top: 40px;
         }
     </style>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            const buttons = document.querySelectorAll('nav button');
+
+            sections.forEach((section) => {
+                section.classList.remove('active');
+            });
+
+            buttons.forEach((button) => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelector(`[data-target="${sectionId}"]`).classList.add('active');
+        }
+    </script>
 </head>
 <body>
     <nav>
-        <a href="#about">About Me</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        <button class="active" data-target="about" onclick="showSection('about')">About Me</button>
+        <button data-target="experience" onclick="showSection('experience')">Experience</button>
+        <button data-target="projects" onclick="showSection('projects')">Projects</button>
+        <button data-target="skills" onclick="showSection('skills')">Skills</button>
+        <button data-target="contact" onclick="showSection('contact')">Contact</button>
     </nav>
 
-    <header>
-        <h1>Pravallika Uppala</h1>
-        <p>Data Engineer | Cloud Expert | Big Data Enthusiast | AI & Machine Learning Enthusiast</p>
-    </header>
+    <section id="about" class="active">
+        <h2>About Me</h2>
+        <p>Passionate Data Engineer with 5+ years of experience in designing scalable and efficient data systems. Skilled in cloud platforms, data integration, and real-time analytics. Completed a Master's in Computer Science at the University of Alabama at Birmingham.</p>
+    </section>
 
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Passionate Data Engineer with 5+ years of experience in designing scalable and efficient data systems. Skilled in cloud platforms, data integration, and real-time analytics. Completed a Master's in Computer Science at the University of Alabama at Birmingham.</p>
-        </section>
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <h3>Azure Data Engineer</h3>
+        <p><strong>Blue Cross and Blue Shield of Alabama</strong> | Aug 2024 - Present</p>
+        <ul>
+            <li>Developed and maintained data pipelines using Azure Data Factory.</li>
+            <li>Designed large-scale data warehouses with Azure Synapse Analytics.</li>
+            <li>Implemented data governance standards with Azure Purview.</li>
+        </ul>
+        <!-- Add more experiences here -->
+    </section>
 
-        <section id="experience">
-            <h2>Professional Experience</h2>
-            <h3>Azure Data Engineer</h3>
-            <p><strong>Blue Cross and Blue Shield of Alabama</strong> | Aug 2024 - Present</p>
-            <ul>
-                <li>Developed and maintained data pipelines using Azure Data Factory (ADF) to automate data ingestion and transformation workflows.</li>
-                <li>Designed and optimized large-scale data warehouses using Azure Synapse Analytics for high availability and performance.</li>
-                <li>Implemented data governance standards with Azure Purview for compliance and security.</li>
-            </ul>
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li><strong>Real-Time Analytics Pipeline:</strong> Built a real-time pipeline using AWS Glue, Redshift, and Kinesis.</li>
+            <li><strong>Data Lakehouse:</strong> Designed a scalable lakehouse architecture with Azure Data Factory and Synapse.</li>
+        </ul>
+    </section>
 
-            <h3>AWS Data Engineer</h3>
-            <p><strong>IKEA</strong> | May 2022 - Dec 2022</p>
-            <ul>
-                <li>Developed robust data pipelines using AWS Glue, Lambda, and Kinesis for real-time streaming and data processing.</li>
-                <li>Optimized data storage on Amazon S3 and Redshift for efficient querying and archival.</li>
-                <li>Automated deployment and monitoring with Cloud Composer and Jenkins.</li>
-            </ul>
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <ul>
+            <li><strong>Cloud Platforms:</strong> AWS, Azure, GCP</li>
+            <li><strong>Languages:</strong> Python, SQL, Scala</li>
+            <li><strong>Tools:</strong> Tableau, Power BI, Apache Airflow</li>
+        </ul>
+    </section>
 
-            <h3>GCP Data Engineer</h3>
-            <p><strong>TCS (Citibank)</strong> | Jan 2021 - Apr 2022</p>
-            <ul>
-                <li>Built real-time streaming data pipelines with Pub/Sub and optimized data models in BigQuery.</li>
-                <li>Developed ETL workflows using Google Dataflow and Apache Beam to process large datasets.</li>
-                <li>Reduced storage costs by implementing lifecycle policies and optimizing compute instances.</li>
-            </ul>
-
-            <h3>Data Engineer</h3>
-            <p><strong>Barry Callebaut Group</strong> | Mar 2018 - Dec 2020</p>
-            <ul>
-                <li>Integrated data across the organization using Azure services and implemented real-time analytics with Kafka.</li>
-                <li>Created Tableau dashboards for actionable insights and automated workflows with CI/CD pipelines.</li>
-            </ul>
-        </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul>
-                <li><strong>Real-Time Analytics Pipeline:</strong> Built a real-time data pipeline for healthcare analytics using AWS Glue, Redshift, and Kinesis.</li>
-                <li><strong>Data Lakehouse on Azure:</strong> Designed a scalable data lakehouse architecture using Azure Data Factory, Databricks, and Synapse Analytics.</li>
-            </ul>
-        </section>
-
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <ul>
-                <li><strong>Cloud Platforms:</strong> AWS (S3, Redshift, Glue, Lambda, EMR), Azure (Data Factory, Synapse, Databricks)</li>
-                <li><strong>Data Pipelines:</strong> Apache Airflow, AWS Glue, Azure Data Factory, Talend</li>
-                <li><strong>Languages:</strong> Python, SQL, Scala</li>
-                <li><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB</li>
-                <li><strong>Visualization:</strong> Tableau, Power BI</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p><strong>Email:</strong> <a href="mailto:upravallika31@gmail.com">upravallika31@gmail.com</a></p>
-            <p><strong>Phone:</strong> +1 669-255-7004</p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pravallika-u/">linkedin.com/in/uppalapravallika</a></p>
-        </section>
-    </div>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p><strong>Email:</strong> <a href="mailto:upravallika31@gmail.com">upravallika31@gmail.com</a></p>
+        <p><strong>Phone:</strong> +1 669-255-7004</p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pravallika-u/">linkedin.com/in/uppalapravallika</a></p>
+    </section>
 
     <footer>
         <p>&copy; 2025 Pravallika Uppala. All Rights Reserved.</p>
