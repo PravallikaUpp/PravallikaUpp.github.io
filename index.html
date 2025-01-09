@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pravallika Uppala - Data Engineer Portfolio</title>
+    <title>Pravallika Uppala - Personal Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -12,6 +12,24 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+        }
+        nav {
+            background: #0056b3;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
         header {
             background: linear-gradient(90deg, #0056b3, #007bff);
@@ -26,24 +44,6 @@
         header p {
             font-size: 1.2em;
             margin-top: 10px;
-        }
-        header .cta-buttons {
-            margin-top: 20px;
-        }
-        header .cta-buttons button {
-            background-color: #fff;
-            color: #0056b3;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        header .cta-buttons button:hover {
-            background-color: #ddd;
         }
         .container {
             max-width: 1200px;
@@ -76,39 +76,6 @@
         a:hover {
             text-decoration: underline;
         }
-        .project-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .project-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .project-card img {
-            width: 100%;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-        .project-card h3 {
-            margin: 0 0 10px;
-            font-size: 1.2em;
-        }
-        .project-card p {
-            margin-bottom: 10px;
-        }
-        .project-card a {
-            color: #0056b3;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
         footer {
             text-align: center;
             padding: 20px;
@@ -119,13 +86,17 @@
     </style>
 </head>
 <body>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <header>
         <h1>Pravallika Uppala</h1>
         <p>Data Engineer | Cloud Expert | Big Data Enthusiast | AI & Machine Learning Enthusiast</p>
-        <div class="cta-buttons">
-            <button>Hire Me</button>
-            <button>Download Résumé</button>
-        </div>
     </header>
 
     <div class="container">
@@ -134,24 +105,46 @@
             <p>Passionate Data Engineer with 5+ years of experience in designing scalable and efficient data systems. Skilled in cloud platforms, data integration, and real-time analytics. Completed a Master's in Computer Science at the University of Alabama at Birmingham.</p>
         </section>
 
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <h3>Azure Data Engineer</h3>
+            <p><strong>Blue Cross and Blue Shield of Alabama</strong> | Aug 2024 - Present</p>
+            <ul>
+                <li>Developed and maintained data pipelines using Azure Data Factory (ADF) to automate data ingestion and transformation workflows.</li>
+                <li>Designed and optimized large-scale data warehouses using Azure Synapse Analytics for high availability and performance.</li>
+                <li>Implemented data governance standards with Azure Purview for compliance and security.</li>
+            </ul>
+
+            <h3>AWS Data Engineer</h3>
+            <p><strong>IKEA</strong> | May 2022 - Dec 2022</p>
+            <ul>
+                <li>Developed robust data pipelines using AWS Glue, Lambda, and Kinesis for real-time streaming and data processing.</li>
+                <li>Optimized data storage on Amazon S3 and Redshift for efficient querying and archival.</li>
+                <li>Automated deployment and monitoring with Cloud Composer and Jenkins.</li>
+            </ul>
+
+            <h3>GCP Data Engineer</h3>
+            <p><strong>TCS (Citibank)</strong> | Jan 2021 - Apr 2022</p>
+            <ul>
+                <li>Built real-time streaming data pipelines with Pub/Sub and optimized data models in BigQuery.</li>
+                <li>Developed ETL workflows using Google Dataflow and Apache Beam to process large datasets.</li>
+                <li>Reduced storage costs by implementing lifecycle policies and optimizing compute instances.</li>
+            </ul>
+
+            <h3>Data Engineer</h3>
+            <p><strong>Barry Callebaut Group</strong> | Mar 2018 - Dec 2020</p>
+            <ul>
+                <li>Integrated data across the organization using Azure services and implemented real-time analytics with Kafka.</li>
+                <li>Created Tableau dashboards for actionable insights and automated workflows with CI/CD pipelines.</li>
+            </ul>
+        </section>
+
         <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="project-gallery">
-                <div class="project-card">
-                    <img src="project1-screenshot.jpg" alt="Real-Time Analytics Pipeline">
-                    <h3>Real-Time Analytics Pipeline</h3>
-                    <p>Tools: AWS Glue, Redshift, Kinesis</p>
-                    <p>Built a real-time data pipeline for healthcare analytics, enabling faster decision-making.</p>
-                    <a href="#">View Project</a>
-                </div>
-                <div class="project-card">
-                    <img src="project2-screenshot.jpg" alt="Data Lakehouse on Azure">
-                    <h3>Data Lakehouse on Azure</h3>
-                    <p>Tools: Azure Data Factory, Databricks, Synapse Analytics</p>
-                    <p>Designed a scalable data lakehouse architecture for optimized query performance.</p>
-                    <a href="#">View Project</a>
-                </div>
-            </div>
+            <h2>Projects</h2>
+            <ul>
+                <li><strong>Real-Time Analytics Pipeline:</strong> Built a real-time data pipeline for healthcare analytics using AWS Glue, Redshift, and Kinesis.</li>
+                <li><strong>Data Lakehouse on Azure:</strong> Designed a scalable data lakehouse architecture using Azure Data Factory, Databricks, and Synapse Analytics.</li>
+            </ul>
         </section>
 
         <section id="skills">
